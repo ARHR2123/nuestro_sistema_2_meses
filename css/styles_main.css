@@ -1,0 +1,622 @@
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    background: #0d0a10;
+    color: #f8f2f4;
+    font-family: Manrope, Arial, sans-serif;
+    overflow-x: hidden
+}
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #0d0a10;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    transition: opacity .8s
+}
+
+.loader.hide {
+    opacity: 0;
+    pointer-events: none
+}
+
+.loader-box {
+    width: min(360px, 82vw);
+    text-align: center;
+    font-family: "DM Mono", monospace;
+    color: #c9bcc4
+}
+
+.loader-heart {
+    font-size: 42px;
+    color: #e9a7bd;
+    display: block;
+    margin-bottom: 22px;
+    animation: pulse 1s infinite
+}
+
+.progress {
+    height: 3px;
+    background: #2c242d;
+    margin: 18px 0;
+    overflow: hidden
+}
+
+.progress i {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: #e9a7bd;
+    transition: width .15s
+}
+
+.loader small {
+    opacity: .45
+}
+
+.nav {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 6vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.brand {
+    font-family: "DM Mono";
+    font-size: 14px;
+    letter-spacing: .12em
+}
+
+.brand span {
+    color: #e9a7bd
+}
+
+.music-btn {
+    border: 1px solid #4b3c47;
+    background: #171119;
+    color: #fff;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-size: 17px
+}
+
+.section {
+    min-height: 100vh;
+    padding: 120px 9vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative
+}
+
+.hero {
+    text-align: center;
+    align-items: center;
+    min-height: 100svh
+}
+
+.glow {
+    position: absolute;
+    width: 55vw;
+    height: 55vw;
+    max-width: 650px;
+    max-height: 650px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #7d3654 0, rgba(74, 31, 52, .3) 34%, transparent 68%);
+    filter: blur(35px);
+    opacity: .45;
+    z-index: -1
+}
+
+.eyebrow,
+.section-label {
+    font: 500 11px "DM Mono", monospace;
+    letter-spacing: .18em;
+    color: #b9aab3
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(62px, 11vw, 150px);
+    font-weight: 500;
+    line-height: .88;
+    margin: 25px 0 35px
+}
+
+.hero h1 em,
+h2 em {
+    font-weight: 500;
+    color: #e9a7bd
+}
+
+.lead {
+    color: #c5bac1;
+    line-height: 1.8;
+    font-size: 16px
+}
+
+.primary {
+    margin-top: 35px;
+    border: 1px solid #806070;
+    background: #e9a7bd;
+    color: #1b1117;
+    padding: 15px 23px;
+    border-radius: 999px;
+    font: 600 13px Manrope;
+    cursor: pointer;
+    box-shadow: 0 10px 35px rgba(233, 167, 189, .15)
+}
+
+.primary span {
+    margin-left: 18px
+}
+
+.scroll-note {
+    position: absolute;
+    bottom: 28px;
+    font: 10px "DM Mono";
+    letter-spacing: .15em;
+    color: #746872
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9vw;
+    margin-top: 55px
+}
+
+.section h2 {
+    font: 500 clamp(42px, 6vw, 82px)/1.02 "Playfair Display";
+    margin: 22px 0 0;
+    letter-spacing: -.02em
+}
+
+.text {
+    color: #c7bbc2;
+    line-height: 1.9;
+    font-size: 15px;
+    max-width: 550px
+}
+
+.timeline h2,
+.gallery h2,
+.reasons h2 {
+    margin-bottom: 65px
+}
+
+.timeline-list {
+    max-width: 850px
+}
+
+.timeline-list article {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    gap: 25px;
+    padding: 30px 0;
+    border-top: 1px solid #2e2730
+}
+
+.timeline-list article>span {
+    font: 12px "DM Mono";
+    color: #8e7c87
+}
+
+.timeline-list small {
+    font: 10px "DM Mono";
+    letter-spacing: .16em;
+    color: #a68f9a
+}
+
+.timeline-list h3 {
+    font: 600 22px Manrope;
+    margin: 8px 0
+}
+
+.timeline-list p {
+    color: #9e9199;
+    line-height: 1.7;
+    margin: 0
+}
+
+.photos {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px
+}
+
+.photo {
+    height: 370px;
+    background: #171219;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.photo:hover {
+    transform: scale(1.03);
+}
+
+.photo:nth-child(2),
+.photo:nth-child(3) {
+    margin-top: 60px
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: .85
+}
+
+.photo span {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font: 10px "DM Mono";
+    background: rgba(10, 8, 12, .65);
+    padding: 8px;
+    color: #eee
+}
+
+.terminal-section {
+    align-items: center
+}
+
+.terminal {
+    width: min(780px, 100%);
+    background: #09080b;
+    border: 1px solid #302731;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+    font: 13px/2 "DM Mono", monospace
+}
+
+.terminal-top {
+    height: 42px;
+    border-bottom: 1px solid #302731;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 15px;
+    color: #746873
+}
+
+.terminal-top span {
+    font-size: 9px
+}
+
+.terminal-top b {
+    margin-left: auto;
+    font-weight: 400;
+    font-size: 11px
+}
+
+.terminal-body {
+    padding: 28px;
+    color: #aaa0a8
+}
+
+.muted {
+    color: #e9a7bd
+}
+
+.ok {
+    color: #a7cda9
+}
+
+.warning {
+    color: #d7b878
+}
+
+.result {
+    margin-top: 20px;
+    color: #eee
+}
+
+.result strong {
+    color: #e9a7bd
+}
+
+.cursor {
+    animation: blink 1s infinite
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 900px
+}
+
+.card {
+    padding: 30px;
+    background: #151016;
+    border: 1px solid #29232b;
+    min-height: 200px
+}
+
+.card b {
+    font: 11px "DM Mono";
+    color: #e9a7bd
+}
+
+.card h3 {
+    font-size: 22px;
+    margin: 25px 0 10px
+}
+
+.card p {
+    color: #a99da5;
+    line-height: 1.7;
+    margin: 0
+}
+
+.flowers {
+    text-align: center;
+    align-items: center;
+    background: radial-gradient(circle at 50% 45%, rgba(108, 45, 72, .24), transparent 35%)
+}
+
+.flower-art {
+    font-size: 110px;
+    color: #e9a7bd;
+    line-height: 1;
+    animation: float 4s ease-in-out infinite
+}
+
+.flower-copy {
+    max-width: 620px;
+    color: #bcaeb7;
+    line-height: 1.9;
+    margin-top: 35px
+}
+
+.signature {
+    font-family: "Playfair Display";
+    font-size: 24px;
+    line-height: 1.5;
+    margin-top: 35px
+}
+
+.letter {
+    align-items: center;
+    min-height: auto;
+    padding-top: 140px;
+    padding-bottom: 140px
+}
+
+.envelope {
+    width: min(600px, 90vw);
+    min-height: 360px;
+    background: #181119;
+    border: 1px solid #40313d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative
+}
+
+.seal {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #e9a7bd;
+    color: #24151d;
+    font-size: 23px;
+    margin-bottom: 22px
+}
+
+.envelope-label {
+    font-family: "Playfair Display";
+    font-size: 28px
+}
+
+.small {
+    margin-top: 25px
+}
+
+.letter-content {
+    display: none;
+    width: min(760px, 100%);
+    animation: fadeUp .7s
+}
+
+.letter-content.show {
+    display: block
+}
+
+.letter-paper {
+    margin-top: 35px;
+    padding: clamp(25px, 6vw, 65px);
+    background: #f5edf0;
+    color: #332831;
+    line-height: 1.9;
+    font-family: "Playfair Display", serif;
+    font-size: 17px
+}
+
+.letter-paper p {
+    margin: 0 0 22px
+}
+
+.code-love {
+    font: 13px/2 "DM Mono";
+    background: #211820;
+    color: #ddd1d8;
+    padding: 22px;
+    margin: 30px 0
+}
+
+.code-love span {
+    display: inline-block;
+    color: #e9a7bd;
+    width: 150px
+}
+
+.big-line {
+    font-size: 26px !important;
+    line-height: 1.35
+}
+
+.final {
+    text-align: center;
+    align-items: center;
+    min-height: 80vh
+}
+
+.final-heart {
+    font-size: 70px;
+    color: #e9a7bd;
+    animation: pulse 1.6s infinite
+}
+
+.final h2 {
+    margin: 25px 0
+}
+
+.status {
+    font: 12px "DM Mono";
+    border: 1px solid #3b3038;
+    padding: 13px 20px;
+    margin: 15px 0 35px
+}
+
+.status span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #9dcc9f;
+    margin-right: 10px
+}
+
+.next {
+    color: #9d9099;
+    line-height: 1.7
+}
+
+.tiny {
+    color: #635861;
+    font-size: 12px;
+    margin-top: 35px
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #625760;
+    font: 10px "DM Mono";
+    letter-spacing: .1em;
+    border-top: 1px solid #201a20
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.12)
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0
+    }
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-12px) rotate(4deg)
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+@media(max-width:700px) {
+    .section {
+        padding: 100px 7vw
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 35px
+    }
+
+    .photos {
+        grid-template-columns: 1fr
+    }
+
+    .photo,
+    .photo:nth-child(2),
+    .photo:nth-child(3) {
+        height: 390px;
+        margin-top: 0
+    }
+
+    .cards {
+        grid-template-columns: 1fr
+    }
+
+    .hero h1 {
+        font-size: 68px
+    }
+
+    .section h2 {
+        font-size: 48px
+    }
+
+    .terminal {
+        font-size: 11px
+    }
+
+    .terminal-body {
+        padding: 20px
+    }
+
+    .code-love span {
+        width: 120px
+    }
+
+    .envelope {
+        min-height: 310px
+    }
+
+    .letter-paper {
+        font-size: 16px
+    }
+}
+
+.story-image {
+    width: 45%;
+    border-radius: 10px;
+    margin-top: 20px;
+}

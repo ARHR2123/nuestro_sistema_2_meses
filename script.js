@@ -12,6 +12,29 @@ function openLetter(){
   document.getElementById("letterContent").classList.add("show");
   setTimeout(()=>document.getElementById("letterContent").scrollIntoView({behavior:"smooth",block:"start"}),100);
 }
-document.getElementById("musicBtn").addEventListener("click",()=>{
-  alert("Añade tu canción en script.js o integra un reproductor externo aquí 🎵");
+
+const musicBtn = document.getElementById("musicBtn"); 
+const music = document.getElementById("backgroundMusic");
+
+// Intentar reproducir automáticamente al cargar la página
+window.addEventListener("load", () => {
+   music.play()
+    .then(() => {
+      // El navegador permitió el autoplay
+      musicBtn.innerHTML = "⏸️";
+    })
+    .catch(() => {
+      // El navegador bloqueó el autoplay
+      console.log("El navegador bloqueó la reproducción automática.");
+      musicBtn.innerHTML = "🎵"; 
+    });
+  }
+);
+  
+musicBtn.addEventListener("click", () => { 
+  if (music.paused) {
+     music.play(); musicBtn.innerHTML = "⏸️"; 
+  } else {
+     music.pause(); musicBtn.innerHTML = "🎵"; 
+  } 
 });
